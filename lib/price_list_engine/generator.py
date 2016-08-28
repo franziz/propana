@@ -1,4 +1,5 @@
-from ..database import Database
+from ..database    import Database
+from babel.numbers import format_number
 import pandas as pd
 import os
 import shutil
@@ -8,10 +9,10 @@ class Generator:
 		pass
 
 	@classmethod
-	def clean_directory(self):
+	def clean_directory(self):		
 		path = os.path.join(".","price_list")
 		print("[price_list_generator][debug] Cleaning %s folder" % path)
-		shutil.rmtree(path)
+		if os.path.isdir(path): shutil.rmtree(path)
 
 	@classmethod
 	def generate(self, tipe=None, mark_up="0"):
@@ -39,7 +40,7 @@ class Generator:
 				row = {
 					      "Kode" : item["kode"],
 					"Keterangan" : item["keterangan"],
-					     "Harga" : item["harga"] + int(mark_up),
+					     "Harga" : format_number(item["harga"] + int(mark_up), locale='id_id'),
 					    "Status" : item["status"]
 				}
 				providers[group["provider"]] = providers[group["provider"]].append(row, ignore_index=True)
