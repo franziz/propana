@@ -7,6 +7,7 @@ import glob
 
 class Mailer:
 	def __init__(self):
+		self.mail_server = "mail_server"
 		pass
 
 	def send(self, member=None):
@@ -32,5 +33,5 @@ class Mailer:
 		if not os.path.isdir(price_list_path): raise CannotFindFolder("Cannot find %s folder" % price_list_path)
 		for file_path in glob.iglob(os.path.join(price_list_path,"*.xls")):
 			envelope.add_attachment(file_path)
-		envelope.send("localhost",tls=True)
+		envelope.send(self.mail_server,tls=True)
 
