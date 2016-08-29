@@ -1,5 +1,6 @@
 price_list/
 *.xls
+*.log
 
 # Created by https://www.gitignore.io/api/python
 
