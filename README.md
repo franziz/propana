@@ -1,4 +1,4 @@
-Guide ini dibuat menggunakan bahasa Indonesia karena software yang dibuat ini dipergunakan hanya untuk kalangan sendiri dan orang Indonesia saja.
+Guide ini dibuat menggunakan Bahasa Indonesia karena software yang dibuat ini dipergunakan hanya untuk kalangan sendiri dan orang Indonesia saja.
 
 Sekilas tentang propanareload.com merupakan sebuah agent pembayaran online yang melayani pembelian pulsa, kuota, maupun token PLN.
 

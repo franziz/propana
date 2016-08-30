@@ -4,9 +4,10 @@ import pymongo
 
 class Member:
 	def __init__(self, **kwargs):
-		self.nama    = kwargs.get("nama",None)
-		self.email   = kwargs.get("email",None)
-		self.mark_up = kwargs.get("mark_up",0)
+		self.nama               = kwargs.get("nama",None)
+		self.email              = kwargs.get("email",None)
+		self.mark_up            = kwargs.get("mark_up",0)
+		self.receive_price_list = kwargs.get("receive_price_list",False)
 
 	def save(self):
 		assert self.nama          is not None, "nama is not defined."
@@ -16,9 +17,10 @@ class Member:
 		try:
 			db = Database.get_db()
 			db.members.insert({
-				  "nama" : self.nama,
-				 "email" : self.email,
-				"mark_up": self.mark_up
+				              "nama" : self.nama,
+				             "email" : self.email,
+				           "mark_up" : self.mark_up,
+				"receive_price_list" : self.receive_price_list
 			})
 		except pymongo.errors.DuplicateKeyError:
 			raise DuplicateMember("Email sudah pernah didaftarkan.")
