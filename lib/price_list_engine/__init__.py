@@ -6,7 +6,7 @@ import json
 
 class Engine:
 	def __init__(self):
-		pass
+		self.alamat_price_list = "http://www.propanareload.com/hargaretail/"
 
 	def crawl(self):
 		print("[price_list_engine][debug] Connecting to database...")
@@ -17,7 +17,7 @@ class Engine:
 		driver = webdriver.PhantomJS(executable_path="/usr/local/bin/phantomjs")
 		driver.set_window_size(1366, 768)
 		driver.set_page_load_timeout(random.randint(60,180))
-		driver.get("http://www.propanareload.com/hargaretail/")
+		driver.get(self.alamat_price_list)
 		print("[price_list_engine][debug] Page loaded!")
 
 		print("[price_list_engine][debug] Crawling...")

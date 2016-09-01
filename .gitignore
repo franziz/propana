@@ -1,6 +1,9 @@
 price_list/
+config/
 *.xls
 *.log
+*.json
+test.py
 
 # Created by https://www.gitignore.io/api/python
 

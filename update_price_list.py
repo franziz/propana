@@ -1,4 +1,5 @@
 from lib.price_list_engine import Engine
+from curtsies   		   import fmtstr
 import selenium
 
 if __name__ == "__main__":
@@ -9,4 +10,4 @@ if __name__ == "__main__":
 			engine.crawl()
 			success = True
 		except selenium.common.exceptions.TimeoutException:
-			pass
+			print(fmtstr("[update_price][error] Timeout","red"))

@@ -1,5 +1,7 @@
-from ..database  import Database
-from .exceptions import DuplicateMember
+from ..database   		 import Database
+from .exceptions         import DuplicateMember
+from ..validator.factory import ValidatorFactory
+from ..exceptions        import ValidationError
 import pymongo
 
 class Member:
@@ -15,6 +17,9 @@ class Member:
 		assert type(self.mark_up) is int     , "incorrect mark_up data type."
 
 		try:
+			email_validator = ValidatorFactory.get_validator(ValidatorFactory.EMAIL)
+			email_validator.validate(self.email)
+
 			db = Database.get_db()
 			db.members.insert({
 				              "nama" : self.nama,
@@ -24,3 +29,5 @@ class Member:
 			})
 		except pymongo.errors.DuplicateKeyError:
 			raise DuplicateMember("Email sudah pernah didaftarkan.")
+		except ValidationError as validation_error:
+			raise validation_error
