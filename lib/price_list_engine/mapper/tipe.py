@@ -10,9 +10,9 @@ class TipeMapper(Mapper):
 		tipe = self.default
 		if    based_on.lower() == "axis data & bb".lower() \
 		   or based_on.lower() == "bolt".lower() \
-		   or based_on.lower() == "indosat data dan BB".lower() \
-		   or based_on.lower() == "indosat data promo".lower() \
-		   or based_on.lower() == "indosat data promo ratu".lower() \
+		   or based_on.lower() == "indosat data & bb (unreg dulu)".lower() \
+		   or based_on.lower() == "Indosat Data Promo(Unreg dulu)".lower() \
+		   or based_on.lower() == "Indosat Data Ratu (Unreg dulu)".lower() \
 		   or based_on.lower() == "telkomsel data".lower() \
 		   or based_on.lower() == "xl data dan bb".lower() \
 		   or based_on.lower() == "smartfren paket data".lower() \
